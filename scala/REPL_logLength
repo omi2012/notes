@@ -1,0 +1,16 @@
+
+scala> :power
+** Power User mode enabled - BEEP BOOP SPIZ **
+** :phase has been set to 'typer'.          **
+** scala.tools.nsc._ has been imported      **
+** global._ and definitions._ also imported **
+** Try  :help,  vals.<tab>,  power.<tab>    **
+
+    scala> vals.isettings.maxPrintString
+maxPrintString     maxPrintString_=   
+
+scala> vals.isettings.maxPrintString = 10000
+vals.isettings.maxPrintString: Int = 10000
+or
+
+$ scala -uniqid -Xprint:typer -Yshow-syms -Dscala.repl.maxprintstring=64000

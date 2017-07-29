@@ -1,0 +1,9 @@
+From https://github.com/sbt/sbt/wiki/User-Stories:-Conflict-Warning#user-story-warn-if-scalaversion-is-no-longer-effective
+
+Scala libs  2.10.x are binary compatible with 2.10.0, but not with 2.9 or 2.8.
+ScalaTest 2.1.2 : ScalaTest 2.0.x is source compat, but not bincompat. "However, 2.1.2 is binary compatible with 2.1.0 and 2.1.1"
+Play 2.2 It appears that Play 2.2 is not compat with Play 2.0 in any way.
+Not sure about Specs2, but I suspect 2.x and 2.0 are not binary compat.
+Akka 2.3 It appears that Akka 2.3 is not compat with Akka 2.0 in any way.
+
+

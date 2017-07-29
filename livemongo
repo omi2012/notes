@@ -1,0 +1,442 @@
+import com.mongodb.casbah.commons.conversions.scala._
+import com.mongodb.casbah.WriteConcern
+import com.mongodb.casbah.Imports._
+import salat._
+import salat.global._
+import org.bson.types._
+import com.mongodb.CommandResult
+import play.api.Play
+  val entries = MongoDBFactory.database("entries")
+  val CAentries = MongoDBObject("data.location.country" -> "CA")
+  val getDownloadLink = MongoDBObject("data.urls.web.rewards" -> 1)
+  def idObject(id: String) = new ObjectId(id)
+  def getAnEntry = {
+    entries.findOne().getOrElse("")
+  }
+getAnEntry
+val obj = entries.findOneByID(idObject("58d6a17351b388e3b27f653f"))
+def getEntryById(id: String): Option[String] = {
+    entries.findOneByID(idObject(id)) match {
+      case Some(x) => x.getAs[String]("data")
+      case _       => None
+    }
+  }
+val objID="58d6a17351b388e3b27f653f"
+getEntryById(objID)
+val id="58d6a17351b388e3b27f653f"
+entries.findOneByID(idObject(id))
+entries.findOneByID(idObject(id)) match {
+case Some(x) =>x
+case _ => None
+}
+entries.findOneByID(idObject(id))
+entries.findOneByID(idObject(id))
+ entries.findOneByID(idObject(id)) match {
+      case Some(x) => x.getAs[String]("data")
+      case _       => None
+    }
+val q =   entries.findOneByID(idObject(id))
+q
+q.toList
+q.get("data")
+q.get("data")
+entries.findOneByID(idObject(id))
+entries.findOneByID(idObject(id))
+entries.findOneByID(idObject(id)).get("data")
+entries.findOneByID(idObject(id)).get("data")
+entries.findOneByID(idObject(id)).get("data")
+entries.findOneByID(idObject(id)).get("data")
+val q =   entries.findOneByID(idObject("58d6a17351b388e3b27f653f"))
+q.get("data")
+def getEntryById(id: String): Option[String] = {
+    
+    entries.findOneByID(idObject(id)) match {
+      case Some(x) => x.getAs[String]("data")
+      case _       => None
+    }
+  }
+getEntryById("58d6a17351b388e3b27f653f")
+def getEntryById(id: String): Option[String] = {
+    
+    entries.findOneByID(idObject(id)) match {
+      case Some(x) => Some(x.get("data").toString())
+      case _       => None
+    }
+  }
+getEntryById("58d6a17351b388e3b27f653f")
+ def getDownloadLinkById(id: String): Option[String] = {
+    entries.findOneByID(idObject(id)) match {
+      case Some(x) => Some(x.get("data.urls.web.project").toString()) 
+      case _       => None
+    }
+  }
+ def getDownloadLinkById(id: String): Option[String] = {
+    entries.findOneByID(idObject(id)) match {
+      case Some(x) => Some(x.get("data.urls.web.project").toString()) 
+      case _       => None
+    }
+  }
+id
+id
+def getDownloadLinkById(id: String): Option[String] = {
+    entries.findOneByID(idObject(id)) match {
+      case Some(x) => Some(x.get("data.urls.web").toString()) 
+      case _       => None
+    }
+  }
+q
+q.get("data")
+q.get("data")
+val m = q.get("data")
+q
+q.getOrElse("")
+val m = q.getOrElse("")
+q.toList
+val m = q.toList
+m(0)
+m(0).get("data")
+m(0).get("data.urls")
+entries.findOneByID(id)
+entries.findOneByID(id)
+entries.findOneByID(idObject(id),getDownloadLink)
+entries.findOneByID(idObject(id),getDownloadLink).get
+entries.findOneByID(idObject(id),getDownloadLink)
+val m =entries.findOneByID(idObject(id),getDownloadLink)
+m.toList
+m.toList(0)
+m.toList(0).get("")
+val n =m.toList(0)
+n
+n.get("data")
+n.get("data.urls")
+n.get("data")
+n.get("data")
+n.get("data")
+n.get("data")
+val k =n.get("data")
+m
+m.foreach (println)
+q
+q.foreach (println)
+q.get("data")
+import play.api.libs.json._
+val rs = new RewardsScraper
+rs.parseRewards("https://www.kickstarter.com/projects/patriettes/girls-state-a-new-musical-comedy/rewards",true)
+val b = MongoDBObject.newBuilder
+b
+b
+val builder = MongoDBList.newBuilder
+builder += "a"
+builder += "b"
+builder
+builder.result
+import java.io._
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+import sys.process._
+import java.net.URL
+import java.io.File
+new URL("http://google.com") #> new File("/tmp/qqq") !!
+import org.apache.commons.io.FilenameUtils
+import java.net.URL
+import scala.concurrent.Future
+import scala.concurrent.forkjoin._
+import scala.concurrent.ExecutionContext.Implicits.global
+entries
+def getProjectById(id: String): Option[MongoDBObject] = {
+    entries.findOneByID(idObject(id)) match {
+      //case Some(x) => x.getAs[String]("data.urls.web.reards")
+      case Some(x) => Some(x)
+      case None => None
+    }
+  }
+val id="58d6a17351b388e3b27f653f"
+val q = getProjectById(id)
+q.get("data")
+q.get("_id")
+q
+q.getOrElse()
+q.getOrElse(None)
+q.get("id")
+q.get("data")
+q.get("data")
+q.get("data")
+val m =q.get("data")
+q.as[String](_)
+q.as[String]("data")
+q
+q.get
+q.get
+val m = q.get
+m.get("data")
+m.get("data")
+m.get("data").get
+m.as[MongoDBObject]("data")
+m.as[MongoDBObject]("data")
+m.as[MongoDBObject]("data.urls")
+m.as[MongoDBObject]("data.urls")
+def getDownloadLinkById(id: String): Option[String] = {
+    entries.findOneByID(idObject(id),getDownloadLink) match {
+      case Some(x) => x.getAs[String]("data.urls.web.rewards")
+      case _       => None
+    }
+  }
+val d= getDownloadLinkById(id)
+val d= getDownloadLinkById(id).get
+val d= getDownloadLinkById(id).get
+val d= getDownloadLinkById(id).get
+import com.mongodb.casbah.commons.conversions.scala._
+import com.mongodb.casbah.WriteConcern
+import com.mongodb.casbah.Imports._
+import salat._
+import salat.global._
+import org.bson.types._
+import com.mongodb.CommandResult
+import com.mongodb.casbah.WriteConcern
+object RewardsRepository {
+  val rewards = MongoDBFactory.database("rewards")
+   
+  def addNew(df: Rewards):Rewards  = {
+      val dBObject = grater[Rewards].asDBObject(df)
+      rewards.save(dBObject, WriteConcern.Safe) //WriteConcern.Safe ensures things get written to immediately
+      grater[Rewards].asObject(dBObject) // once save is called, dbObject gets populated with the '_id' field
+   }
+  
+   def getRewards(id:String):Option[Rewards] = {
+     rewards.findOneByID(new ObjectId(id)) match {
+       case Some(x) => Some(grater[Rewards].asObject(x))
+       case _ => None
+     }
+   }
+}
+RewardsRepository.getRewards(id)
+import java.io._
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+import sys.process._
+import java.net.URL
+import java.io.File
+object SaveFileService {
+  def saveFile(filename:String, data:String):Unit = {
+    val pw = new PrintWriter(new File(filename))
+    pw.write(data)
+    pw.close
+  }
+  
+  //download a file - blocking call
+  //Reminder: call this from a future not to block main.
+def fileDownloader(url: String, filename: String):String = {
+    new URL(url) #> new File(filename) !!
+}
+  
+}
+import net.ruippeixotog.scalascraper.browser.JsoupBrowser
+import net.ruippeixotog.scalascraper.dsl.DSL._
+import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
+import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
+import net.ruippeixotog.scalascraper.model.Element
+import org.bson.types.ObjectId
+import com.github.nscala_time.time.Imports._
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+import scala.util.{Success, Failure}
+object RewardsScraper {
+  val pledgeInfoDivClass=".pledge__info"
+  val pledgeAmountH2Class=".pledge__amount"
+  val pledgeAmountSpanClass=".money"
+  val pledgeTitleClass=".pledge__title"
+  val pledgeDescriptionClass=".pledge__reward-description" //need to get P element
+  val pledgeDeliveryClass=".pledge__detail-info" //need to get <time element>
+  val pledgeBackersClass=".pledge__backer-count" //contains inside a span; need to just get the int value
+  val liRewardIdParameter=".data-reward-id" 
+  val pledgeWithoutRewardText = "Make a pledge without a reward"
+  //<li class="hover-group pledge--inactive pledge-selectable-sidebar" data-reward-id="5649966">
+
+}
+ import RewardsScraper._
+RewardsScraper
+object kickstarterCollections {
+
+  implicit val ctx = new Context {
+    val name = "Custom_Classloader"
+  }
+  //this is horrible, why am I forced to do this???
+  ctx.registerClassLoader(Play.classloader(Play.current))
+
+  val entries = MongoDBFactory.database("entries")
+  val CAentries = MongoDBObject("data.location.country" -> "CA")
+  
+  val getDownloadLink = MongoDBObject("data.urls.web.rewards" -> 1)
+  def idObject(id: String) = new ObjectId(id)
+  //val projectGrater = grater[Project] //play is being weird. 
+  //for this to work, it needs Play classloader to be set to Play.current
+}
+object kickstarterCollections {
+
+  implicit val ctx = new Context {
+    val name = "Custom_Classloader"
+  }
+  //this is horrible, why am I forced to do this???
+  ctx.registerClassLoader(Play.classloader(Play.current))
+
+  val entries = MongoDBFactory.database("entries")
+  val CAentries = MongoDBObject("data.location.country" -> "CA")
+  
+  val getDownloadLink = MongoDBObject("data.urls.web.rewards" -> 1)
+  def idObject(id: String) = new ObjectId(id)
+  //val projectGrater = grater[Project] //play is being weird. 
+  //for this to work, it needs Play classloader to be set to Play.current
+}
+ def getProjectById(id: String): Option[MongoDBObject] = {
+    entries.findOneByID(new ObjectId(id)) match {
+      //case Some(x) => x.getAs[String]("data.urls.web.reards")
+      case Some(x) => Some(x)
+      case None => None
+    }
+  }
+def getDownloadLinkById(id: String): Option[String] = {
+    entries.findOneByID(new ObjectId(id),getDownloadLink) match {
+      case Some(x) => x.getAs[String]("data.urls.web.rewards")
+      case _       => None
+    }
+  }
+object RewardsScraper {
+  val pledgeInfoDivClass=".pledge__info"
+  val pledgeAmountH2Class=".pledge__amount"
+  val pledgeAmountSpanClass=".money"
+  val pledgeTitleClass=".pledge__title"
+  val pledgeDescriptionClass=".pledge__reward-description" //need to get P element
+  val pledgeDeliveryClass=".pledge__detail-info" //need to get <time element>
+  val pledgeBackersClass=".pledge__backer-count" //contains inside a span; need to just get the int value
+  val liRewardIdParameter=".data-reward-id" 
+  val pledgeWithoutRewardText = "Make a pledge without a reward"
+  //<li class="hover-group pledge--inactive pledge-selectable-sidebar" data-reward-id="5649966">
+
+}
+ import RewardsScraper._
+class RewardsScraper {
+ 
+  def parseRewards(location:String, fromURL:Boolean=true):List[Reward] = {
+    val browser = JsoupBrowser()
+    val doc = if(fromURL) browser.get(location) else browser.parseFile(location)
+    val rewards:List[Element] = doc >> elementList(pledgeInfoDivClass)
+    //loop over each reward item and extract the entries we're looking for
+    rewards.map(reward => parseReward(reward))
+  }
+  
+  //TODO make each element parsing into a function, easier to test that way!!!!
+  def parseReward(el:Element):Reward = {
+    //DateTime.parse("2014-07-06")
+    val amountTitle:Option[String] = el >?> extractor(pledgeAmountH2Class, text, asIs[String])
+    val amountElement:Option[String] = el >?> extractor(pledgeAmountSpanClass, text, asIs[String])
+   
+    
+    val amount:String = if(amountTitle.contains(pledgeWithoutRewardText)) "NoRewardPledge" 
+       else amountElement match {
+        case Some(amt) => amt.filter(_.isDigit)
+        case None => "-1"
+       }
+    
+    val name:String = (el >?> extractor(pledgeTitleClass, text, asIs[String])).getOrElse("")
+    val desc:String = (el >?> extractor(pledgeDescriptionClass, text, asIs[String])).getOrElse("")
+    
+   
+    val deliveryDate = (el >?>  attr("datetime")("time")) match {
+      case Some(v) => DateTime.parse(v)
+      case None => new DateTime(0)
+    }
+    //val deliveryDate:DateTime = DateTime.parse((el >> element(pledgeDeliveryClass)).text)
+    val numBackers:Int = (el >?> element(pledgeBackersClass)) match {
+      case Some(v) => v.text.filter(_.isDigit).toInt
+      case None => -1 //-1 for unknown
+    }
+    
+    Reward(amount, name, desc, deliveryDate, numBackers)
+  }
+ }
+    val rs = new RewardsScraper()
+import java.net.URL
+import scala.concurrent.Future
+import scala.concurrent.forkjoin._
+import scala.concurrent.ExecutionContext.Implicits.global
+case class DownloadedFile (_id:ObjectId = new ObjectId, 
+    url:String, filePath:String, date: DateTime = new DateTime)
+import com.mongodb.casbah.commons.conversions.scala._
+import com.mongodb.casbah.WriteConcern
+import com.mongodb.casbah.Imports._
+import salat._
+import salat.global._
+import org.bson.types._
+import com.mongodb.CommandResult
+object downloadedFileCollections {
+  
+  implicit val ctx = new Context {
+    val name = "Custom_Classloader"
+  }
+  //this is horrible, why am I forced to do this???
+  ctx.registerClassLoader(Play.classloader(Play.current))
+  
+  val downloads = MongoDBFactory.database("downloads")
+  val downloadedFileGrater = grater[DownloadedFile]
+  def lookupByUrl(url: String) = MongoDBObject("url" -> url)
+  def lookupByFilePath(filePath: String) = MongoDBObject("filePath" -> filePath)
+  def idObject(id: String) = new ObjectId(id)
+  
+  val showFilePathOnly = MongoDBObject("filePath"->1,"_id"->0)
+}
+import com.mongodb.casbah.WriteConcern
+object DownloadedFileRepository {
+  import downloadedFileCollections._
+  
+    def addNew(df: DownloadedFile):DownloadedFile  = {
+      val dBObject = downloadedFileGrater.asDBObject(df)
+      downloads.save(dBObject, WriteConcern.Safe) //WriteConcern.Safe ensures things get written to immediately
+      downloadedFileGrater.asObject(dBObject) // once save is called, dbObject gets populated with the '_id' field
+    }
+  
+  def getAnEntry = {
+    downloads.findOne().getOrElse("")
+  }
+  
+  def getById(id: String): Option[DownloadedFile] = {
+    downloads.findOneByID(new ObjectId(id)) match {
+      case Some(x) => Some(downloadedFileGrater.asObject(x))
+      case _       => None
+    }
+  }
+  //TODO: ask someone competent how to refactor out this boilerplate
+  //this is starting to acquire Java-esque stench
+  def getByUrl(url:String): Option[DownloadedFile] = {
+    downloads.findOne(lookupByUrl(url), showFilePathOnly)  match {
+      case Some(x) => Some(downloadedFileGrater.asObject(x))
+      case _ => None
+    }
+  }
+  
+}
+class CachingDownloader {
+  import dao._
+  val downloadBasePath = "/home/omi/kickstarter/data/rewards"
+  
+  //returns the path where the file was downloaded to.
+  def download(path:String, target:Option[String]):String =  {
+    val url:URL = new URL(path)
+    val fileEnding = target match {
+      case Some(targetName) => targetName
+      case None => FilenameUtils.getName(url.getPath())
+    }
+    val tgtFilename = s"$downloadBasePath/$fileEnding"
+    //check if the file was already downloaded.
+    val downloadedLocation:Option[DownloadedFile] = DownloadedFileRepository.getByUrl(path)
+    
+    downloadedLocation match {
+      case Some(df) => df.filePath
+      case None => {
+        SaveFileService.fileDownloader(path,tgtFilename);
+        DownloadedFileRepository.addNew(DownloadedFile(url=path,filePath=tgtFilename))
+        tgtFilename
+      }
+    }
+  }
+  
+}

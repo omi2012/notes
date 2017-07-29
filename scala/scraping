@@ -1,0 +1,21 @@
+DELAY SEQUENTIAL DOWNLOADING
+
+Suppose you have a list of URLs you watch to fetch:
+
+val urls = List(
+  "http://www.google.com",
+  "http://stackoverflow.com",
+  "http://www.bing.com"
+)
+In Play 2.5.x, we can process these sequentially, and use akka.pattern.after to force an asynchronous delay between each call. We flatMap the Future result of a webservice call to something that will return the same value after one second.
+
+Future.traverse(urls) { url =>
+  wsClient.url(url).get().flatMap { result =>
+    // potentially process `result` here
+    akka.pattern.after(1.second, actorSystem.scheduler)(Future.successful(result))
+  }
+} // returns Future[List[WSResponse]]
+This requires that you have a WSClient and ActorSystem component available, as well as in implicit ExecutionContext in scope.
+
+=========
+

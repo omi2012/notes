@@ -1,0 +1,61 @@
+Dedup a collection
+-------
+If you always want to ensure that only one document has any given a, b combination, 
+you can use a unique index on a and b. When creating the index, you can give the 
+dropDups option, which will remove all but one duplicate:
+
+db.collection.ensureIndex({a: 1, b: 1}, {unique: true, dropDups: true})
+db.rewardsCopy.ensureIndex({entryId: 1, "rewards":1}, {unique: true, dropDups: true})
+
+
+=========
+SELECT ... GROUP BY... HAVING COUNT = 2
+
+var k=db.rewards.aggregate([
+	{
+		"$group": {
+			"_id": { "entryId": "$entryId"},
+			"count": {"$sum":1}
+		}
+	},
+	{"$match" : {"count":2}},
+	{"$project":{"_id":0, "entryId": "$_id.entryId"}}
+])
+
+
+
+=====
+Checking some entries
+> db.rewards.find({"entryId":ObjectId("58d6a17451b388e3b27f8770")},{"rewards":0})
+{ "_id" : ObjectId("58e913b4d57b2061395556c4"), "entryId" : ObjectId("58d6a17451b388e3b27f8770") }
+{ "_id" : ObjectId("58e913b5d57b2061395556c6"), "entryId" : ObjectId("58d6a17451b388e3b27f8770") }
+> 
+
+
+insert data
+
+val update = MongoDBObject(
+  "$set" -> MongoDBObject("answers" -> userExam.userAnswers)
+)
+
+--------------
+INCONSISTENCY of GROUP vs PROJECT
+$group does not support inclusion-style expressions'
+
+{ $group : {
+    _id : { "returnflag" :1, "linestatus" : 1},  <---
+Here "returnfalg":1 is not supported. it's valid in $project not in $group If you want to create composite key, try
+
+_id : { "returnflag" :"$returnflag", "linestatus" : "$linestatus"}
+I believe your are trying to group by returnflag and linestatus
+=========
+Check if field exists in casbah
+val q = "email" $exists true
+// q: (String, com.mongodb.DBObject) =
+// (email,{ "$exists" : true})
+val users = for (x <- mongoColl.find(q)) yield x
+assert(users.size == 1)
+=========
+
+
+

@@ -1,0 +1,22 @@
+#include "LowPower.h" // import the lowpoer library
+int led = 13; 
+void setup()
+{ 
+pinMode(led, OUTPUT); 
+}
+void loop() 
+{ 
+digitalWrite(led, HIGH); 
+LowPower.powerDown(SLEEP_1S, ADC_OFF, BOD_OFF); // instead of delay(1000) ; 
+digitalWrite(led, LOW); 
+LowPower.powerDown(SLEEP_1S, ADC_OFF, BOD_OFF); // instead of delay(1000) ; 
+}
+Before using the Lowpower library current taken by arduino
+
+51.7mA when led is ON
+47mA when led is OFF
+
+After using the Lowpower library current taken by arduino
+
+34.93mA when led is ON
+31.73mA when led is OFF

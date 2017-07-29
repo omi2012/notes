@@ -1,0 +1,12 @@
+case class DomainId[A](value: String)
+trait IdCompanion[A] {
+  val Id = DomainId[A] _
+  type Id = DomainId[A]
+  case class WithId(id: Id, a: A)
+}
+
+case class Blub(a: Int)
+object Blub extends IdCompanion[Blub]
+
+Blub.WithId(Blub.Id("id"), Blub(1))
+

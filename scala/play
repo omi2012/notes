@@ -1,0 +1,11 @@
+Verification of fields.... can make validators
+
+I'm not entirely sure what you have in mind by making these more generic, but you can make your own Mapping validators by composing already existing ones in the Forms object.
+
+val nonEmptyAlphaText: Mapping[String] = nonEmptyText.verifying("Must contain letters and spaces only.", name => name.matches("[A-z\\s]+") )
+And then you can use it in the Form:
+
+val userForm = Form(
+   "firstName" -> nonEmptyAlphaText
+)
+

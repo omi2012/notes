@@ -1,0 +1,17 @@
+TURN OFF SLICK LOGGING
+
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <logger name="scala.slick" level="INFO" />
+</configuration>
+
+
+//LESS SUCCESSFUL?
+
+akka {
+  stdout-loglevel = "OFF"
+  loglevel = "OFF"
+}
+
+
+<logger name="slick.jdbc.JdbcBackend.parameter" level="DEBUG" />

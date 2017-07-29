@@ -1,0 +1,11 @@
+val work: DBIO[UserId] = {
+  UserRepository.findByEmail(createdUser.email).flatMap {
+    case Some(_) => DBIO.failed(new Exception("Provided email is already taken"))
+    case _ =>
+      if(User.validateUser(createdUser.email, createdUser.password).isValid) {
+        UserRepository.save(createdUser)
+      } else {
+        DBIO.failed(new Exception("User validation has failed"))
+      }
+  }.transactionally
+}
